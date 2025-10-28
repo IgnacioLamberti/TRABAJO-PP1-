@@ -14,12 +14,14 @@ if (!process.env.DATABASE_URL) {
 // Configuración SSL obligatoria para Render
 const options = {
   ssl: { rejectUnauthorized: false },
-  idle_timeout: 30,
-  connect_timeout: 30,
+  idle_timeout: 10,
+  connect_timeout: 10,
   max: 10,
 };
 
+
 // Crear conexión global
+console.log("🌐 Intentando conectar con PostgreSQL...");
 const sql = postgres(process.env.DATABASE_URL, options);
 
 // Probar la conexión
